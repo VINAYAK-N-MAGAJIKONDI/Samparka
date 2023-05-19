@@ -20,13 +20,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool isDarkTheme = true;
 
-  IconData get ico => isDarkTheme ? CupertinoIcons.lightbulb : CupertinoIcons.lightbulb_fill;
+  IconData get ico =>
+      isDarkTheme ? CupertinoIcons.lightbulb : CupertinoIcons.lightbulb_fill;
 
   ThemeData get theme => isDarkTheme ? ThemeData.dark() : ThemeData.light();
 
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = const Color(0xFF9DCC68); // Change the primary color here
+    Color primaryColor =
+        const Color(0xFF9DCC68); // Change the primary color here
 
     ColorScheme colorScheme = theme.colorScheme.copyWith(
       primary: primaryColor,
@@ -38,7 +40,8 @@ class _MyAppState extends State<MyApp> {
         splashColor: Colors.white,
         scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.white,
         textTheme: theme.textTheme.copyWith(
-          bodyText1: TextStyle(color: isDarkTheme ? Colors.white : Colors.black),
+          bodyText1:
+              TextStyle(color: isDarkTheme ? Colors.white : Colors.black),
           headline6: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,

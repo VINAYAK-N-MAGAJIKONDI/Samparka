@@ -4,11 +4,11 @@ import 'package:samparka/main.dart';
 
 import '../styles/textStyles.dart';
 
-class MyAppBar extends StatelessWidget with PreferredSizeWidget{
+class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   late String head;
   late IconData ico;
 
-  MyAppBar(this.ico, this.head,{Key? key}) : super(key: key);
+  MyAppBar(this.ico, this.head, {Key? key}) : super(key: key);
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
@@ -16,15 +16,16 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-          head,
+        head,
         style: Font.appBarHeading,
         textScaleFactor: 1.175,
       ),
       actions: [
-        IconButton(onPressed: () {
-          themeGlobalKey.currentState?.toggleTheme();
-        }
-            , icon: Icon(ico))
+        IconButton(
+            onPressed: () {
+              themeGlobalKey.currentState?.toggleTheme();
+            },
+            icon: Icon(ico))
       ],
     );
   }

@@ -11,17 +11,13 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
-
-
   @override
-
   Widget build(BuildContext context) {
     IconData ico = themeGlobalKey.currentState!.ico;
     return Scaffold(
-        appBar: MyAppBar(ico,"Notifications"),
+      appBar: MyAppBar(ico, "Notifications"),
       drawer: MyDrawer(),
       body: Center(child: Text('notification')),
-
-      );
+    );
   }
 }

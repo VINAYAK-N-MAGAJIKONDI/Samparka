@@ -11,16 +11,13 @@ class Notes extends StatefulWidget {
 }
 
 class _NotesState extends State<Notes> {
-
-
   @override
   Widget build(BuildContext context) {
     IconData ico = themeGlobalKey.currentState!.ico;
     return Scaffold(
-      appBar: MyAppBar(ico,"Notes"),
+      appBar: MyAppBar(ico, "Notes"),
       drawer: MyDrawer(),
       body: Center(child: Text('Notes')),
-
     );
   }
 }

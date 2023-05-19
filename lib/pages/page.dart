@@ -8,13 +8,10 @@ class Same extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     IconData ico = themeGlobalKey.currentState!.ico;
 
     return Scaffold(
-      appBar:MyAppBar(ico,"landing page"),
-
-
+      appBar: MyAppBar(ico, "landing page"),
       body: Center(
         child: Text(
           'Same redirected page for alumni and students',
