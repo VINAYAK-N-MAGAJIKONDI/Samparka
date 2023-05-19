@@ -12,31 +12,50 @@ final themeGlobalKey = GlobalKey<_MyAppState>();
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeData theme = ThemeData.dark();
-  IconData ico = CupertinoIcons.moon_circle_fill;
+  bool isDarkTheme = true;
+
+  IconData get ico => isDarkTheme ? CupertinoIcons.lightbulb : CupertinoIcons.lightbulb_fill;
+
+  ThemeData get theme => isDarkTheme ? ThemeData.dark() : ThemeData.light();
 
   @override
   Widget build(BuildContext context) {
+    Color primaryColor = const Color(0xFF9DCC68); // Change the primary color here
+
+    ColorScheme colorScheme = theme.colorScheme.copyWith(
+      primary: primaryColor,
+      secondary: const Color(0xFFFF6E40),
+    );
     return MaterialApp(
-      theme: theme,
+      theme: theme.copyWith(
+        colorScheme: colorScheme,
+        splashColor: Colors.white,
+        scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.white,
+        textTheme: theme.textTheme.copyWith(
+          bodyText1: TextStyle(color: isDarkTheme ? Colors.white : Colors.black),
+          headline6: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+          // Add or modify other text styles as needed
+        ),
+
+        // Add or modify other properties as needed
+      ),
+      themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
       home: HomePage(),
     );
   }
 
-  void changeTheme() {
+  void toggleTheme() {
     setState(() {
-      if (themeGlobalKey.currentState!.theme == ThemeData.dark()) {
-        themeGlobalKey.currentState!.theme = ThemeData.light();
-        ico = CupertinoIcons.sun_max_fill;
-      } else {
-        themeGlobalKey.currentState!.theme = ThemeData.dark();
-        ico = CupertinoIcons.moon_circle_fill;
-      }
+      isDarkTheme = !isDarkTheme;
     });
   }
 }

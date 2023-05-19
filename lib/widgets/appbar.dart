@@ -22,7 +22,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget{
       ),
       actions: [
         IconButton(onPressed: () {
-          themeGlobalKey.currentState?.changeTheme();
+          themeGlobalKey.currentState?.toggleTheme();
         }
             , icon: Icon(ico))
       ],
